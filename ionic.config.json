@@ -1,0 +1,7 @@
+{
+  "name": "scan-poc",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
