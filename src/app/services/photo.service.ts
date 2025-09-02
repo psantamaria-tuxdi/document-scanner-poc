@@ -9,6 +9,12 @@ import { Capacitor } from '@capacitor/core';
 import { Filesystem, Directory } from '@capacitor/filesystem';
 import { Preferences } from '@capacitor/preferences';
 import { Platform } from '@ionic/angular';
+import {
+  DocumentScanner,
+  ResponseType,
+  ScanDocumentOptions,
+  ScanDocumentResponse,
+} from 'capacitor-document-scanner';
 
 export interface UserPhoto {
   filepath: string;
@@ -28,22 +34,60 @@ export class PhotoService {
   }
 
   public async addNewToGallery() {
+    const options: ScanDocumentOptions = {
+      croppedImageQuality: 75,
+      maxNumDocuments: 1,
+      responseType: ResponseType.Base64,
+    };
+
+    const capturedPhoto = await DocumentScanner.scanDocument(options);
+
+    console.log(capturedPhoto);
+
+
     // Take a photo
-    const capturedPhoto = await Camera.getPhoto({
-      resultType: CameraResultType.Uri,
-      source: CameraSource.Camera,
-      quality: 100,
-    });
+    // const capturedPhoto = await Camera.getPhoto({
+    //   resultType: CameraResultType.Uri,
+    //   source: CameraSource.Camera,
+    //   quality: 100,
+    // });
 
     // Save the picture and add it to photo collection
-    const savedImageFile = await this.savePicture(capturedPhoto);
-    this.photos.unshift(savedImageFile);
+    // const savedImageFile = await this.savePicture(capturedPhoto);
+    // this.photos.unshift(savedImageFile);
 
-    Preferences.set({
-      key: this.PHOTO_STORAGE,
-      value: JSON.stringify(this.photos),
-    });
+    // Preferences.set({
+    //   key: this.PHOTO_STORAGE,
+    //   value: JSON.stringify(this.photos),
+    // });
   }
+
+  // private async scanDocuments(): Promise<string[]> {
+  //   // const maxNumDocuments: number = this.maxFiles;
+
+  //   const options: ScanDocumentOptions = {
+  //     croppedImageQuality: 75,
+  //     maxNumDocuments: 1,
+  //     responseType: ResponseType.Base64,
+  //   };
+
+  //   const scanResponse: ScanDocumentResponse =
+  //     await DocumentScanner.scanDocument(options);
+  //   const { scannedImages, status } = scanResponse;
+
+  //   if (scannedImages!.length > 0 && status === 'success') {
+  //     // Resize images to IMG_MAX_SIZE
+  //     // const resizedImages = await Promise.all(
+  //     //   scannedImages!.map(
+  //     //     async (image) =>
+  //     //       await this.resizeBase64Image(`data:image/jpeg;base64,${image}`)
+  //     //   )
+  //     // );
+
+  //     // return resizedImages;
+  //     return scannedImages;
+  //   }
+  // }
 
   public async loadSaved() {
     // Retrieve cached photo array data
