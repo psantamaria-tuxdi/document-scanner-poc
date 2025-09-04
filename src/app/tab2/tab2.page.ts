@@ -13,6 +13,7 @@ import {
   IonImg,
 } from '@ionic/angular/standalone';
 import { PhotoService } from '../services/photo.service';
+import { DocumentScannerService } from '../services/document-scanner.service';
 
 @Component({
   selector: 'app-tab2',
@@ -33,13 +34,14 @@ import { PhotoService } from '../services/photo.service';
   ],
 })
 export class Tab2Page implements OnInit {
-  constructor(public photoService: PhotoService) {}
+  constructor(public photoService: PhotoService, public documentScannerService: DocumentScannerService) {}
 
   async ngOnInit() {
     await this.photoService.loadSaved();
   }
 
   addPhotoToGallery() {
-    this.photoService.addNewToGallery();
+    // this.photoService.addNewToGallery();
+    this.documentScannerService.scanDocument();
   }
 }

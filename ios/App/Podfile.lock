@@ -13,6 +13,8 @@ PODS:
     - Capacitor
   - CapacitorKeyboard (7.0.2):
     - Capacitor
+  - CapacitorMlkitDocumentScanner (7.3.0):
+    - Capacitor
   - CapacitorPreferences (7.0.2):
     - Capacitor
   - CapacitorStatusBar (7.0.2):
@@ -27,6 +29,7 @@ DEPENDENCIES:
   - "CapacitorFilesystem (from `../../node_modules/@capacitor/filesystem`)"
   - "CapacitorHaptics (from `../../node_modules/@capacitor/haptics`)"
   - "CapacitorKeyboard (from `../../node_modules/@capacitor/keyboard`)"
+  - "CapacitorMlkitDocumentScanner (from `../../node_modules/@capacitor-mlkit/document-scanner`)"
   - "CapacitorPreferences (from `../../node_modules/@capacitor/preferences`)"
   - "CapacitorStatusBar (from `../../node_modules/@capacitor/status-bar`)"
 
@@ -49,6 +52,8 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/haptics"
   CapacitorKeyboard:
     :path: "../../node_modules/@capacitor/keyboard"
+  CapacitorMlkitDocumentScanner:
+    :path: "../../node_modules/@capacitor-mlkit/document-scanner"
   CapacitorPreferences:
     :path: "../../node_modules/@capacitor/preferences"
   CapacitorStatusBar:
@@ -62,10 +67,11 @@ SPEC CHECKSUMS:
   CapacitorFilesystem: f9bd850c41e048180e5dc0cbb90f2033ede9d2cc
   CapacitorHaptics: b3fb2869e72c4466e18ce9ccbeb60a3d8723b3d4
   CapacitorKeyboard: a86aa9e4741b6444a802df26440a92ae041b34a6
+  CapacitorMlkitDocumentScanner: dae0d1aca10c07a6073b6299cb9cc31ed95af96b
   CapacitorPreferences: 65107ed7437d96ee72583df5763985e3c0ff2bc2
   CapacitorStatusBar: e04d05e121d5a5979c29eb4249186a4e4a84cacb
   IONFilesystemLib: 89258b8e3e85465da93127d25d7ce37f977e8a6f
 
-PODFILE CHECKSUM: bfc80ff7fd6c2ab1707d95794a58c07d81e03bec
+PODFILE CHECKSUM: d8653d5215ae72dca8130912eb7d432ca411f984
 
 COCOAPODS: 1.16.2
